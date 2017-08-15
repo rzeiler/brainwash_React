@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Lobster';
-  src: url('fonts/Lobster-Regular.ttf') format('truetype');
+  src: url('./fonts/Lobster-Regular.ttf') format('truetype');
 }
 
 
 div.scape {
-  background-image: url(img/yosemite.jpg);
+  background-image: url(./img/yosemite.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: 0px 0px 55px rgba(0, 0, 0, 1) inset;
