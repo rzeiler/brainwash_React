@@ -1,8 +1,5 @@
-// out: app.css
-@font-face {
-  font-family: 'Lobster';
-  src: url('./fonts/Lobster-Regular.ttf') format('truetype');
-}
+// out: App.css
+
 
 div.scape {
   background-image: url("./img/yosemite.jpg");
@@ -19,12 +16,11 @@ div.header {
   display: block;
   padding: 20px;
   color: #fff;
-  font-size: 300%;
-  text-align: center;
-  font-family: 'Lobster';
+   background-image: url("./img/brainwash.png");
+   background-size: contain;
+   background-repeat: no-repeat;
+   background-position: center;
 }
-
- 
 
 div.formular {
   font-size: 300%;

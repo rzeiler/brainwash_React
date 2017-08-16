@@ -1,9 +1,11 @@
 /* eslint no-eval: 0 */
 import React, {Component} from 'react';
 import stopWatch from './stopWatch';
+import keyData from './keyData/keyData.json';
 import Numberpad from './component/Numberpad';
+import eventWatch from './eventWatch';
 
-import './app.css';
+import './App.css';
 
 class App extends Component {
 
@@ -25,6 +27,9 @@ class App extends Component {
     this.rebuildClick = this.rebuildClick.bind(this);
     this.getRandom = this.getRandom.bind(this);
     this.numberpadClick = this.numberpadClick.bind(this);
+
+    new eventWatch(keyData, this.numberpadClick);
+
   }
 
   getRandom(min, max) {
@@ -86,24 +91,25 @@ class App extends Component {
 
   numberpadClick(sign) {
     var s = "0";
-    switch (sign) {
+    switch (sign.value) {
       case "OK":
         this.onClick();
         break;
-      case "CL":
+      case "SKIP":
         this.rebuildClick();
+        break;
+      case "CL":
+        s = "0";
         break;
       default:
         if (this.state.value === "0") {
-          s = String(sign);
+          s = String(sign.value);
         } else {
-          s = String(this.state.value) + String(sign);
+          s = String(this.state.value) + String(sign.value);
         }
         break;
     }
-
     this.setState({value: s});
-    //console.log('numberpadClick', sign);
   }
 
   render() {
@@ -112,7 +118,7 @@ class App extends Component {
       <div>
         <div className=" scape row ">
           <div className="col-xs-6 header bg">
-            Brainwash
+            &nbsp;
           </div>
           <div className="col-xs-6 formular bg">
             {this.state.formular}
@@ -133,7 +139,7 @@ class App extends Component {
             Failed: {this.state.failed}
           </div>
         </div>
-        <Numberpad onClickHandler={this.numberpadClick}/>
+        <Numberpad keyData={keyData} onClickHandler={this.numberpadClick}/>
       </div>
     );
   }
