@@ -14,7 +14,6 @@ class Hello extends Component {
   componentWillMount() {
     var x = document.getElementsByTagName("BODY")[0];
     x.className = "hello show";
-    this.onClick(null);
   }
 
   onClick(e) {
@@ -34,6 +33,7 @@ class Hello extends Component {
               <br/>
             </div>
             <div className="col-xs-6">
+              <h1>Welcome to Brainwash MATH</h1>
               <p>Train your brain!</p>
             </div>
             <div className="off-xs-2 col-xs-2">
