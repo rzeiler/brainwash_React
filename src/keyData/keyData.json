@@ -51,11 +51,11 @@
   "value": "CL",
   "keyCode": [8]
 }, {
-  "label": "",
-  "value": "",
-  "keyCode": []
-}, {
   "label": "SKIP",
   "value": "SKIP",
   "keyCode": [32]
+}, {
+  "label": "",
+  "value": "",
+  "keyCode": []
 }]
