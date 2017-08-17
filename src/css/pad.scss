@@ -2,12 +2,13 @@
 
 $fg-breakpoints: (
   (250%),
-  (300%, 300px),
-  (350%, 400px),
-  (400%, 500px),
-  (450%, 600px),
-  (500%, 700px)
+  (250%, 400px),
+  (300%, 600px),
+  (350%, 1000px)
 ) !default;
+
+
+
 
 @mixin grid-base( $param ) {
   .pad {
@@ -26,7 +27,7 @@ $fg-breakpoints: (
   } @else {
     $param: nth($val, 1);
     $size: nth($val, 2);
-    @media only screen and (min-height: #{$size}) {
+    @media only screen and (min-height: #{$size}) and (orientation:landscape) {
       @include grid-base( $param );
     }
   }
