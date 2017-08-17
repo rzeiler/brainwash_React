@@ -6,7 +6,7 @@ import Numberpad from './component/Numberpad';
 import Hello from './component/Hello';
 import eventWatch from './eventWatch';
 
-import './App.css';
+import './App.min.css';
 
 class App extends Component {
 
@@ -26,7 +26,7 @@ class App extends Component {
       bestTime: 0,
       isBlur: true,
       level: 1,
-      levelStep: 2
+      levelStep: 10
     };
     this.onClick = this.onClick.bind(this);
     this.rebuildClick = this.rebuildClick.bind(this);

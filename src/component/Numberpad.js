@@ -29,8 +29,8 @@ class NumberItem extends Component {
 
   render() {
     return (
-      <div className={this.props.colClassName} onClick={this.props.onClickHandler}>
-        <div className='pad'>{this.props.label}</div>
+      <div className={"pad " + this.props.colClassName} onClick={this.props.onClickHandler}>
+        {this.props.label}
       </div>
     );
   }

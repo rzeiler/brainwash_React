@@ -1,5 +1,4 @@
-// out: App.css
-
+// out: App.min.css
 
 div.scape {
   background-image: url("./img/yosemite.jpg");
@@ -11,17 +10,12 @@ div.scape {
 .bg {
   background-color: rgba(0, 0, 0, .45);
 }
-
 .successful {
-
-
   background-image: url("./img/done.png");
   background-size: 0 0;
   background-repeat: no-repeat;
   background-position: center;
 }
-
-
 div.header {
   display: block;
   padding: 20px;

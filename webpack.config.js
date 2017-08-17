@@ -12,7 +12,7 @@ module.exports = {
           presets: ['es2015', 'stage-2', 'react']
         }
       }, {
-        test: /\.css$/,
+        test: /\.min.css$/,
         loader: 'style-loader!css-loader'
       }, {
         test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/,
