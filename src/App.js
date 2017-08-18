@@ -40,15 +40,24 @@ class App extends Component {
     return Math.round(Math.random() * ((max * level) - min) + min);
   }
 
+  isOdd(num) {
+    return num % 2;
+  }
+
   getChallenge() {
     var sign = ["+", "-", "*"];
-    var a = this.getRandom(1, 13, this.state.level);
-    var b = this.getRandom(1, 12, this.state.level);
-    var c = this.getRandom(0, 2, 1);
-    var formular = "a s b";
-    formular = formular.replace('a', a);
-    formular = formular.replace("b", b);
-    formular = formular.replace("s", sign[c]);
+    var multi = this.getRandom(3, 2 + this.state.level, 1);
+    if (!this.isOdd(multi)) {
+      multi++;
+    }
+    var formular = "";
+    for (var i = 0; i < multi; i++) {
+      if (!this.isOdd(i)) {
+        formular += " " + this.getRandom(1, 12, (multi / 2));
+      } else {
+        formular += " " +  sign[this.getRandom(0, 2, 1)];
+      }
+    }
     var result = eval(formular);
     this.setState({formular: formular, result: result});
   }
@@ -159,7 +168,8 @@ class App extends Component {
                     &nbsp;
                   </div>
                   <div className="col-xs-6 formular">
-                    {this.state.formular} = <span className={this.state.inputClass}>{this.state.value}</span>
+                    {this.state.formular}&nbsp;=&nbsp;
+                    <span className={this.state.inputClass}>  {this.state.value}</span>
                   </div>
 
                   <div className=" col-xs-3 time">
