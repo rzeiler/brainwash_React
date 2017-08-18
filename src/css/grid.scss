@@ -1,4 +1,4 @@
-// out: grid.css
+// out: grid.min.css
 
 /**
  * Flex Grid -
@@ -48,8 +48,8 @@ $fg-class-off: 'off' !default;
  */
 $fg-breakpoints: (
   (xs),
-  (sm, 768px),
-  (md, 992px),
+  (sm, 600px),
+  (md, 900px),
   (lg, 1200px)
 ) !default;
 
@@ -72,12 +72,12 @@ $fg-breakpoints: (
  */
 @mixin spacing( $value, $type: margin, $orientation: vertical ) {
   @if $orientation == vertical {
-    #{ $type }-top: $value;
-    #{ $type }-bottom: $value;
+    // #{ $type }-top: $value;
+    // #{ $type }-bottom: $value;
   } @else {
-    #{ $type }-left: $value;
-    #{ $type }-right: $value;
-    #{ $type }-top: $value;
+    // #{ $type }-left: $value;
+    // #{ $type }-right: $value;
+    // #{ $type }-top: $value;
   }
 }
 

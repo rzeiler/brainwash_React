@@ -1,9 +1,40 @@
-// out: pad.css
+// out: pad.min.css
+
+$fg-breakpoints: (
+  (250%),
+  (250%, 400px),
+  (300%, 600px),
+  (350%, 1000px)
+) !default;
 
 .pad {
-  line-height: 50px;
   text-align: center;
   color: #fff;
   font-size: 150%;
+  line-height:  250%;
   cursor: pointer;
 }
+
+//
+// @mixin grid-base( $param ) {
+//   .pad {
+//     text-align: center;
+//     color: #fff;
+//     font-size: 150%;
+//     line-height:  $param;
+//     cursor: pointer;
+//   }
+// }
+//
+// @each $val in $fg-breakpoints {
+//   @if length($val) == 1 {
+//     $param: nth($val, 1);
+//     @include grid-base( $param );
+//   } @else {
+//     $param: nth($val, 1);
+//     $size: nth($val, 2);
+//     @media only screen and (min-height: #{$size}) and (orientation:landscape) {
+//       @include grid-base( $param );
+//     }
+//   }
+// }
