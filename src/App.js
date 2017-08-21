@@ -26,7 +26,8 @@ class App extends Component {
       bestTime: 0,
       isBlur: true,
       level: 1,
-      levelStep: 10
+      levelStep: 10,
+      activeList: []
     };
     this.onClick = this.onClick.bind(this);
     this.rebuildClick = this.rebuildClick.bind(this);
@@ -51,11 +52,13 @@ class App extends Component {
       multi++;
     }
     var formular = "";
+    var lastSign = "+"
     for (var i = 0; i < multi; i++) {
       if (!this.isOdd(i)) {
-        formular += " " + this.getRandom(1, 12, (multi / 2));
+        formular += " " + this.getRandom(1, 9, (lastSign === "*") ? 1 : (multi / 2));
       } else {
-        formular += " " +  sign[this.getRandom(0, 2, 1)];
+        lastSign = sign[this.getRandom(0, 2, 1)];
+        formular += " " +  lastSign;
       }
     }
     var result = eval(formular);
@@ -72,9 +75,9 @@ class App extends Component {
   }
 
   checkLevel() {
-    var level = this.state.level,
+    var level = this.state.level  ,
       step = this.state.levelStep;
-    if (this.state.successful > (step * level)) {
+    if ((this.state.successful + 1) >= (step * level)) {
       level = this.state.level + 1;
     }
     return level;
@@ -83,7 +86,7 @@ class App extends Component {
   onClick(e) {
     var t = stopWatch.print();
     var oldLevel = this.state.level;
-
+    this.state.activeList.push("T:" + t + "/" + this.state.formular + "=" + this.state.value);
     if (parseInt(this.state.value, 10) === this.state.result) {
       this.getChallenge();
       var level = this.checkLevel();
@@ -114,12 +117,12 @@ class App extends Component {
 
   rebuildClick(e) {
     stopWatch.stop();
+    var t = stopWatch.print();
+    this.state.activeList.push("T:" + t + "/" + this.state.formular + "=" + this.state.value);
     this.setState({
       failed: this.state.failed + 1
     });
     this.getChallenge();
-    if (this.state.input != null)
-      this.state.input.focus();
     stopWatch.start();
   }
 
@@ -153,6 +156,10 @@ class App extends Component {
 
   render() {
 
+    const ListOfTime = this.state.activeList.map((key, index) =>
+      <li key={index}>{key}</li>
+    );
+
     const colClass = "col-sm-3 col-xs-6 animated";
 
     return (
@@ -171,12 +178,8 @@ class App extends Component {
                     {this.state.formular}&nbsp;=&nbsp;
                     <span className={this.state.inputClass}>  {this.state.value}</span>
                   </div>
-
-                  <div className=" col-xs-3 time">
-                    Time: {this.state.time}
-                  </div>
-                  <div className=" col-xs-3 time">
-                    Best: {this.state.bestTime}
+                  <div className=" col-xs-6 time">
+                    Besttime: {this.state.bestTime}
                   </div>
                   <div className=" col-xs-2 time">
                     Successful: {this.state.successful}
@@ -184,18 +187,24 @@ class App extends Component {
                   <div className=" col-xs-2 time">
                     Failed: {this.state.failed}
                   </div>
-                  <div className={"col-xs-2 time " + this.state.levelClass}>
-                    Level: {this.state.level}
+                  <div className="col-xs-2 time" >
+                    <div className={this.state.levelClass}>Level: {this.state.level}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
           <div className={colClass + (this.state.isBlur
             ? " blurIn"
             : " blurOut")}>
             <Numberpad rowClassName="row" colClassName="col-xs-2" keyData={keyData} onClickHandler={this.numberpadClick}/>
+          </div>
+          <div className={colClass + (this.state.isBlur
+            ? " blurIn"
+            : " blurOut")}>
+            <ul>
+              {ListOfTime}
+            </ul>
           </div>
         </div>
       </Hello>

@@ -1,47 +1,47 @@
 [{
   "label": "1",
   "value": 1,
-  "keyCode": [49,97]
+  "keyCode": [35,49,97]
 }, {
   "label": "2",
   "value": 2,
-  "keyCode": [50,98]
+  "keyCode": [40,50,98]
 }, {
   "label": "3",
   "value": 3,
-  "keyCode": [51,99]
+  "keyCode": [34,51,99]
 }, {
   "label": "4",
   "value": 4,
-  "keyCode": [52,100]
+  "keyCode": [37,52,100]
 }, {
   "label": "5",
   "value": 5,
-  "keyCode": [53,101]
+  "keyCode": [12,53,101]
 }, {
   "label": "6",
   "value": 6,
-  "keyCode": [54,102]
+  "keyCode": [39,54,102]
 }, {
   "label": "7",
   "value": 7,
-  "keyCode": [55,103]
+  "keyCode": [36,55,103]
 }, {
   "label": "8",
   "value": 8,
-  "keyCode": [56,104]
+  "keyCode": [38,56,104]
 }, {
   "label": "9",
   "value": 9,
-  "keyCode": [57,105]
+  "keyCode": [33,57,105]
 }, {
   "label": "-",
   "value": "-",
-  "keyCode": [109,189]
+  "keyCode": [44,109,189]
 }, {
   "label": "0",
   "value": 0,
-  "keyCode": [48,96]
+  "keyCode": [45,48,96]
 }, {
   "label": "OK",
   "value": "OK",

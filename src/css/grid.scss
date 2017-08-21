@@ -48,9 +48,9 @@ $fg-class-off: 'off' !default;
  */
 $fg-breakpoints: (
   (xs),
-  (sm, 800px),
-  (md, 1100px),
-  (lg, 1400px)
+  (sm, 576px),
+  (md, 768px),
+  (lg, 992px)
 ) !default;
 
 /**

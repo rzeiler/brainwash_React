@@ -1,14 +1,15 @@
 // out: App.min.css
 
 div.scape {
-  background-image: url("./img/yosemite.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  box-shadow: 0 0 55px rgba(0, 0, 0, 1) inset;
+  // background-image: url("./img/yosemite.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background-color: #319482;
+  //box-shadow: 0 0 55px rgba(0, 0, 0, 1) inset;
 }
 
 .bg {
-  background-color: rgba(0, 0, 0, .45);
+  //background-color: rgba(0, 0, 0, .45);
 }
 .successful {
   background-image: url("./img/done.png");
