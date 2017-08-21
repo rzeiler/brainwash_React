@@ -7,10 +7,13 @@ html, body {
   font-family: 'Arial';
   background-color: #303030;
 }
-#root{
+.scape>.row, .scape>div>div, .scape>div>div>div {
+  height: 100%;
+}
+/*#root{
   height: 100%;
   width: 100%;
 }
 #root .row, #root>div{
   height: 100%;
-}
+}*/

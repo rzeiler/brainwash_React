@@ -10,7 +10,7 @@
 
 .hello.show {
   overflow: hidden;
-
+  background-color: rgba(0, 0, 0, .5);
   .modal {
     display: block;
     position: fixed;
@@ -22,8 +22,7 @@
     overflow-x: hidden;
     overflow-y: auto;
     outline: 0;
-    max-width: 500px;
-    margin: 30px auto;
+    background-color: rgba(0, 0, 0, .5);
     color: #fff;
     text-align: center;
   }

@@ -15,7 +15,7 @@ class App extends Component {
     this.state = {
       formular: "0+0",
       result: 0,
-      value: "0",
+      value: "?",
       inputClass: 'animated tada',
       levelClass: 'animated pulse',
       imageClass: ' animated success ',
@@ -40,15 +40,24 @@ class App extends Component {
     return Math.round(Math.random() * ((max * level) - min) + min);
   }
 
+  isOdd(num) {
+    return num % 2;
+  }
+
   getChallenge() {
     var sign = ["+", "-", "*"];
-    var a = this.getRandom(1, 13, this.state.level);
-    var b = this.getRandom(1, 12, this.state.level);
-    var c = this.getRandom(0, 2, 1);
-    var formular = "a s b";
-    formular = formular.replace('a', a);
-    formular = formular.replace("b", b);
-    formular = formular.replace("s", sign[c]);
+    var multi = this.getRandom(3, 2 + this.state.level, 1);
+    if (!this.isOdd(multi)) {
+      multi++;
+    }
+    var formular = "";
+    for (var i = 0; i < multi; i++) {
+      if (!this.isOdd(i)) {
+        formular += " " + this.getRandom(1, 12, (multi / 2));
+      } else {
+        formular += " " +  sign[this.getRandom(0, 2, 1)];
+      }
+    }
     var result = eval(formular);
     this.setState({formular: formular, result: result});
   }
@@ -116,7 +125,7 @@ class App extends Component {
 
   numberpadClick(sign) {
     this.setState({imageClass: ''});
-    var s = "0";
+    var s = "?";
     switch (sign.value) {
       case "OK":
         this.onClick();
@@ -125,13 +134,13 @@ class App extends Component {
         this.rebuildClick();
         break;
       case "CL":
-        s = "0";
+        s = "?";
         break;
       case "":
 
         break;
       default:
-        if (this.state.value === "0") {
+        if (this.state.value === "?") {
           s = String(sign.value);
         } else {
           s = String(this.state.value) + String(sign.value);
@@ -159,11 +168,10 @@ class App extends Component {
                     &nbsp;
                   </div>
                   <div className="col-xs-6 formular">
-                    {this.state.formular}
+                    {this.state.formular}&nbsp;=&nbsp;
+                    <span className={this.state.inputClass}>  {this.state.value}</span>
                   </div>
-                  <div className="col-xs-6 result">
-                    <div className={this.state.inputClass}>{this.state.value}</div>
-                  </div>
+
                   <div className=" col-xs-3 time">
                     Time: {this.state.time}
                   </div>
